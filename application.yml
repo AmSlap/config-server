@@ -11,10 +11,11 @@ eureka:
 
 microservice:
   logging-service:
+    base-uri: http://LOGGING-SERVICE
     endpoints:
-      system-logs-endpoint:
-        uri: http://LOGGING-SERVICE/logs/system
+      system-logs-endpoint: /logs/system
+        
   user-service:
+    base-uri: http://USER-SERVICE
     endpoints:
-      user-test-endpoint:
-        uri: http://USER-SERVICE/user/test
+      user-test-endpoint: /user/test
