@@ -13,7 +13,7 @@ microservice:
   logging-service:
     base-uri: http://LOGGING-SERVICE
     endpoints:
-      system-logs-endpoint: /logs/system
+      system-logs-endpoint: /logs/test
         
   user-service:
     base-uri: http://USER-SERVICE
