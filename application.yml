@@ -1,27 +1,15 @@
 eureka:
   instance:
-    # Use these settings for hostname/port registration
-    hostname: ${HOSTNAME:localhost}
     preferIpAddress: false
-    
-    # Add metadata for different access paths
-    metadataMap:
-      # For Prometheus in Docker
-      docker.host: host.docker.internal
-      docker.port: ${server.port}
-      
-      # For services on the same host
-      local.host: localhost
-      local.port: ${server.port}
-      
-    # Standard registration
+    hostname: host.docker.internal
+    nonSecurePort: ${server.port}
+    instanceId: ${spring.application.name}:${server.port}
     statusPageUrl: http://${eureka.instance.hostname}:${server.port}/actuator/info
     healthCheckUrl: http://${eureka.instance.hostname}:${server.port}/actuator/health
     homePageUrl: http://${eureka.instance.hostname}:${server.port}/
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-
 
 
 microservice:
